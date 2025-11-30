@@ -8,16 +8,16 @@ página institucional, formulário de contato e personalização.
 ## 📌 Descrição do Produto/Serviço
 
 A aplicação representa uma loja online que comercializa camisas personlizáveis.\
-O objetivo é demonstrar o funcionamento básico de um e-commerce simples
+O objetivo é demonstrar o funcionamento básico de um e-commerce simples\
 com foco em organização, acessibilidade e experiência do usuário.
 
 ## 🧰 Tecnologias Utilizadas
 
-- HTML5\
-- CSS3\
-- JavaScript\
-- React\
-- Práticas de responsividade\
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Práticas de responsividade
 - Práticas de acessibilidade
 
 ## ▶ Como Executar Localmente
@@ -48,19 +48,19 @@ com foco em organização, acessibilidade e experiência do usuário.
 
 ## 🛠 Funcionalidades Implementadas
 
-- Página inicial com destaque do produto/serviço\
-- Catálogo de produtos com lista, descrição, preço e imagens\
+- Página inicial com destaque do produto/serviço
+- Catálogo de produtos com lista, descrição, preço e imagens
 - Criação de camisetas personalizadas com a própria imagem enviada
-- Página de detalhes para cada item\
+- Página de detalhes para cada item
 - Página de checkout contendo:
-  - item selecionado\
-  - valor total\
-  - formulário com validação\
-  - simulação de confirmação via JavaScript\
-- Página de contato com formulário funcional\
-- Página institucional "Sobre nós"\
-- Rodapé presente em todas as páginas\
-- Layout totalmente responsivo\
+  - item selecionado
+  - valor total
+  - formulário com validação
+  - simulação de confirmação via JavaScript
+- Página de contato com formulário funcional
+- Página institucional "Sobre nós"
+- Rodapé presente em todas as páginas
+- Layout totalmente responsivo
 - Acessibilidade implementada (labels, alt text, contraste, navegação
   clara)
 
