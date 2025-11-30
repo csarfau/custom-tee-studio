@@ -144,6 +144,44 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customize CTA Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="bg-gradient-hero text-primary-foreground rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-2xl" />
+            
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-4">
+                  <Sparkles className="w-4 h-4" />
+                  Novidade
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl mb-4">
+                  CRIE SUA<br />
+                  <span className="text-accent">CAMISETA ÚNICA</span>
+                </h2>
+                <p className="text-primary-foreground/70 mb-6">
+                  Envie sua própria foto e veja como ficará na camiseta em tempo real.
+                  Transforme suas melhores memórias em peças exclusivas!
+                </p>
+                <Button variant="hero" size="lg" asChild>
+                  <Link to="/personalizar">
+                    PERSONALIZAR AGORA
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="hidden md:flex justify-center">
+                <div className="w-48 h-48 bg-accent/20 rounded-full flex items-center justify-center">
+                  <Sparkles className="w-24 h-24 text-accent" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-gradient-hero text-primary-foreground">
         <div className="container-custom text-center">
