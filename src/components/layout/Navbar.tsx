@@ -1,12 +1,19 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, Sparkles } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
 
-const navLinks = [
+interface NavLink {
+  href: string;
+  label: string;
+  highlight?: boolean;
+}
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'Início' },
   { href: '/produtos', label: 'Produtos' },
+  { href: '/personalizar', label: 'Personalizar', highlight: true },
   { href: '/sobre', label: 'Sobre' },
   { href: '/contato', label: 'Contato' },
 ];
@@ -34,12 +41,14 @@ export const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-accent relative py-1",
+                  "text-sm font-medium transition-colors hover:text-accent relative py-1 flex items-center gap-1.5",
+                  link.highlight && "text-accent",
                   location.pathname === link.href
                     ? "text-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent"
-                    : "text-foreground/70"
+                    : !link.highlight && "text-foreground/70"
                 )}
               >
+                {link.highlight && <Sparkles className="w-3.5 h-3.5" />}
                 {link.label}
               </Link>
             ))}
@@ -79,12 +88,14 @@ export const Navbar = () => {
                 to={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "block py-3 text-base font-medium transition-colors",
+                  "block py-3 text-base font-medium transition-colors flex items-center gap-2",
+                  link.highlight && "text-accent",
                   location.pathname === link.href
                     ? "text-accent"
-                    : "text-foreground/70 hover:text-foreground"
+                    : !link.highlight && "text-foreground/70 hover:text-foreground"
                 )}
               >
+                {link.highlight && <Sparkles className="w-4 h-4" />}
                 {link.label}
               </Link>
             ))}

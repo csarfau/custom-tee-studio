@@ -10,6 +10,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Customize from "./pages/Customize";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/personalizar" element={<Customize />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
