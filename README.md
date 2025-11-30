@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
+# 🛍️ Projeto Custom Tee -- Trabalho Acadêmico
 
-## Project info
+Este projeto é uma simulação de uma loja online desenvolvida para fins
+acadêmicos.\
+Inclui catálogo de produtos, página de detalhes, checkout fictício,
+página institucional, formulário de contato e personalização.
 
-**URL**: https://lovable.dev/projects/ed5c83f3-d0a8-4f6d-b97b-145b0cc87d1e
+## 📌 Descrição do Produto/Serviço
 
-## How can I edit this code?
+A aplicação representa uma loja online que comercializa camisas personlizáveis.\
+O objetivo é demonstrar o funcionamento básico de um e-commerce simples
+com foco em organização, acessibilidade e experiência do usuário.
 
-There are several ways of editing your application.
+## 🧰 Tecnologias Utilizadas
 
-**Use Lovable**
+- HTML5\
+- CSS3\
+- JavaScript\
+- React\
+- Práticas de responsividade\
+- Práticas de acessibilidade
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ed5c83f3-d0a8-4f6d-b97b-145b0cc87d1e) and start prompting.
+## ▶ Como Executar Localmente
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔧 Se o projeto for React (Vite ou Create React App):
 
-**Use your preferred IDE**
+1.  **Clone o repositório:**\
+    git clone https://github.com/csarfau/custom-tee-studio.git
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2.  **Acesse o diretório do projeto:**\
+    cd custom-tee-studio
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3.  **Instale as dependências:**\
+    npm install
 
-Follow these steps:
+4.  **Execute o servidor local:**\
+    npm run dev
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+5.  **Acesse no navegador:**\
+    http://localhost:8080\
+    (ou o endereço informado no terminal)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 👥 Integrantes do Grupo
 
-# Step 3: Install the necessary dependencies.
-npm i
+- César Faustino Tavares de Oliveira - D25689
+- Jaqueline
+- Samuel
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🛠 Funcionalidades Implementadas
 
-**Edit a file directly in GitHub**
+- Página inicial com destaque do produto/serviço\
+- Catálogo de produtos com lista, descrição, preço e imagens\
+- Criação de camisetas personalizadas com a própria imagem enviada
+- Página de detalhes para cada item\
+- Página de checkout contendo:
+  - item selecionado\
+  - valor total\
+  - formulário com validação\
+  - simulação de confirmação via JavaScript\
+- Página de contato com formulário funcional\
+- Página institucional "Sobre nós"\
+- Rodapé presente em todas as páginas\
+- Layout totalmente responsivo\
+- Acessibilidade implementada (labels, alt text, contraste, navegação
+  clara)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📄 Licença
 
-**Use GitHub Codespaces**
+Projeto desenvolvido exclusivamente para fins acadêmicos.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📬 Contato
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ed5c83f3-d0a8-4f6d-b97b-145b0cc87d1e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Em caso de dúvidas, entre em contato com o grupo responsável.

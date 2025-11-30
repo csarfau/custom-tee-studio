@@ -1,33 +1,41 @@
-import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Layout } from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useCart } from '@/context/CartContext';
-import { toast } from '@/hooks/use-toast';
-import { Upload, X, ShoppingBag, ImagePlus, Shirt, Check, RotateCcw } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Layout } from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useCart } from "@/context/CartContext";
+import { toast } from "@/hooks/use-toast";
+import {
+  Upload,
+  X,
+  ShoppingBag,
+  ImagePlus,
+  Shirt,
+  Check,
+  RotateCcw,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const tshirtColors = [
-  { name: 'Preto', value: '#1a1a1a', textColor: 'white' },
-  { name: 'Branco', value: '#ffffff', textColor: 'black' },
-  { name: 'Cinza', value: '#6b7280', textColor: 'white' },
-  { name: 'Marinho', value: '#1e3a5f', textColor: 'white' },
-  { name: 'Vermelho', value: '#dc2626', textColor: 'white' },
-  { name: 'Verde', value: '#16a34a', textColor: 'white' },
+  { name: "Preto", value: "#1a1a1a", textColor: "white" },
+  { name: "Branco", value: "#ffffff", textColor: "black" },
+  { name: "Cinza", value: "#6b7280", textColor: "white" },
+  { name: "Marinho", value: "#1e3a5f", textColor: "white" },
+  { name: "Vermelho", value: "#dc2626", textColor: "white" },
+  { name: "Verde", value: "#16a34a", textColor: "white" },
 ];
 
-const sizes = ['PP', 'P', 'M', 'G', 'GG', 'XG'];
+const sizes = ["PP", "P", "M", "G", "GG", "XG"];
 
 const Customize = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState(tshirtColors[0]);
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState("");
   const [imageScale, setImageScale] = useState(50);
   const [imagePosition, setImagePosition] = useState({ x: 50, y: 45 });
   const [isDragging, setIsDragging] = useState(false);
@@ -39,7 +47,7 @@ const Customize = () => {
         toast({
           title: "Arquivo muito grande",
           description: "O tamanho máximo é 5MB.",
-          variant: "destructive"
+          variant: "destructive",
         });
         return;
       }
@@ -55,14 +63,14 @@ const Customize = () => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    
+
     const file = e.dataTransfer.files?.[0];
-    if (file && file.type.startsWith('image/')) {
+    if (file && file.type.startsWith("image/")) {
       if (file.size > 5 * 1024 * 1024) {
         toast({
           title: "Arquivo muito grande",
           description: "O tamanho máximo é 5MB.",
-          variant: "destructive"
+          variant: "destructive",
         });
         return;
       }
@@ -87,7 +95,7 @@ const Customize = () => {
   const removeImage = () => {
     setUploadedImage(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      fileInputRef.current.value = "";
     }
   };
 
@@ -100,16 +108,18 @@ const Customize = () => {
     if (!uploadedImage) {
       toast({
         title: "Envie uma imagem",
-        description: "Por favor, envie uma foto para personalizar sua camiseta.",
-        variant: "destructive"
+        description:
+          "Por favor, envie uma foto para personalizar sua camiseta.",
+        variant: "destructive",
       });
       return;
     }
     if (!selectedSize) {
       toast({
         title: "Selecione um tamanho",
-        description: "Por favor, escolha um tamanho antes de adicionar ao carrinho.",
-        variant: "destructive"
+        description:
+          "Por favor, escolha um tamanho antes de adicionar ao carrinho.",
+        variant: "destructive",
       });
       return;
     }
@@ -119,16 +129,17 @@ const Customize = () => {
         id: Date.now(),
         name: "Camiseta Personalizada",
         description: "Camiseta com sua foto exclusiva",
-        fullDescription: "Camiseta personalizada com sua própria imagem, impressão de alta qualidade.",
-        price: 129.90,
+        fullDescription:
+          "Camiseta personalizada com sua própria imagem, impressão de alta qualidade.",
+        price: 129.9,
         image: uploadedImage,
         category: "Personalizada",
         sizes: sizes,
-        colors: [selectedColor.name]
+        colors: [selectedColor.name],
       },
       quantity: 1,
       selectedSize,
-      selectedColor: selectedColor.name
+      selectedColor: selectedColor.name,
     });
 
     toast({
@@ -136,7 +147,7 @@ const Customize = () => {
       description: "Sua camiseta personalizada foi adicionada ao carrinho.",
     });
 
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   return (
@@ -144,10 +155,15 @@ const Customize = () => {
       {/* Header */}
       <section className="bg-gradient-hero text-primary-foreground section-padding">
         <div className="container-custom text-center">
-          <span className="text-accent font-medium text-sm uppercase tracking-wider">Crie sua peça única</span>
-          <h1 className="font-display text-5xl md:text-7xl mt-2 mb-4">PERSONALIZE</h1>
+          <span className="text-accent font-medium text-sm uppercase tracking-wider">
+            Crie sua peça única
+          </span>
+          <h1 className="font-display text-5xl md:text-7xl mt-2 mb-4">
+            PERSONALIZE
+          </h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
-            Envie sua foto e veja como ficará na camiseta. Crie algo único que representa você!
+            Envie sua foto e veja como ficará na camiseta. Crie algo único que
+            representa você!
           </p>
         </div>
       </section>
@@ -158,69 +174,84 @@ const Customize = () => {
             {/* Preview */}
             <div className="order-2 lg:order-1">
               <h2 className="font-display text-2xl mb-6">PRÉVIA DA CAMISETA</h2>
-              
-              <div 
+
+              <div
                 className="relative aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
-                style={{ backgroundColor: '#f0f0f0' }}
+                style={{ backgroundColor: "#f0f0f0" }}
               >
                 {/* T-shirt SVG */}
-                <svg 
-                  viewBox="0 0 400 450" 
-                  className="w-full h-full max-w-md"
-                >
+                <svg viewBox="0 0 400 450" className="w-full h-full max-w-md">
                   {/* T-shirt shape */}
-                  <path 
+                  <path
                     d="M80 80 L50 120 L80 140 L80 400 L320 400 L320 140 L350 120 L320 80 L260 80 L240 60 Q200 40 160 60 L140 80 Z"
                     fill={selectedColor.value}
-                    stroke={selectedColor.value === '#ffffff' ? '#e5e5e5' : 'transparent'}
+                    stroke={
+                      selectedColor.value === "#ffffff"
+                        ? "#e5e5e5"
+                        : "transparent"
+                    }
                     strokeWidth="2"
                   />
-                  
+
                   {/* Collar */}
-                  <path 
+                  <path
                     d="M160 60 Q200 90 240 60"
                     fill="none"
-                    stroke={selectedColor.value === '#ffffff' ? '#e5e5e5' : selectedColor.value === '#1a1a1a' ? '#333' : 'rgba(0,0,0,0.2)'}
+                    stroke={
+                      selectedColor.value === "#ffffff"
+                        ? "#e5e5e5"
+                        : selectedColor.value === "#1a1a1a"
+                        ? "#333"
+                        : "rgba(0,0,0,0.2)"
+                    }
                     strokeWidth="3"
                   />
-                  
+
                   {/* Uploaded image on shirt */}
                   {uploadedImage && (
-                    <foreignObject 
-                      x={200 - (imageScale * 1.4)} 
-                      y={80 + ((50 - imagePosition.y) * 2)}
-                      width={imageScale * 2.8} 
+                    <foreignObject
+                      x={200 - imageScale * 1.4}
+                      y={80 + (50 - imagePosition.y) * 2}
+                      width={imageScale * 2.8}
                       height={imageScale * 2.8}
                     >
                       <div className="w-full h-full flex items-center justify-center overflow-hidden rounded">
-                        <img 
-                          src={uploadedImage} 
+                        <img
+                          src={uploadedImage}
                           alt="Sua imagem personalizada"
                           className="w-full h-full object-contain"
                         />
                       </div>
                     </foreignObject>
                   )}
-                  
+
                   {/* Placeholder when no image */}
                   {!uploadedImage && (
                     <g>
-                      <rect 
-                        x="140" 
-                        y="120" 
-                        width="120" 
-                        height="120" 
+                      <rect
+                        x="140"
+                        y="120"
+                        width="120"
+                        height="120"
                         fill="none"
-                        stroke={selectedColor.textColor === 'white' ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.2)'}
+                        stroke={
+                          selectedColor.textColor === "white"
+                            ? "rgba(255,255,255,0.3)"
+                            : "rgba(0,0,0,0.2)"
+                        }
                         strokeWidth="2"
                         strokeDasharray="8,4"
                         rx="8"
                       />
-                      <text 
-                        x="200" 
-                        y="185" 
-                        textAnchor="middle" 
-                        fill={selectedColor.textColor === 'white' ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.3)'}
+                      <text
+                        x="200"
+                        y="185"
+                        textAnchor="middle"
+                        fill={
+                          selectedColor.textColor === "white"
+                            ? "rgba(255,255,255,0.5)"
+                            : "rgba(0,0,0,0.3)"
+                        }
                         fontSize="14"
                         fontFamily="Inter, sans-serif"
                       >
@@ -235,8 +266,11 @@ const Customize = () => {
               {uploadedImage && (
                 <div className="mt-6 space-y-4">
                   <div>
-                    <Label className="text-sm mb-2 block">Tamanho da imagem</Label>
+                    <Label className="text-sm mb-2 block">
+                      Tamanho da imagem
+                    </Label>
                     <input
+                      title="Tamanho da imagem"
                       type="range"
                       min="20"
                       max="80"
@@ -249,7 +283,7 @@ const Customize = () => {
                       <span>Maior</span>
                     </div>
                   </div>
-                  
+
                   <Button variant="outline" size="sm" onClick={resetPosition}>
                     <RotateCcw className="w-4 h-4 mr-2" />
                     Resetar posição
@@ -263,7 +297,7 @@ const Customize = () => {
               {/* Upload Area */}
               <div>
                 <h2 className="font-display text-2xl mb-4">ENVIE SUA FOTO</h2>
-                
+
                 {!uploadedImage ? (
                   <div
                     onDrop={handleDrop}
@@ -272,8 +306,8 @@ const Customize = () => {
                     onClick={() => fileInputRef.current?.click()}
                     className={cn(
                       "border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all",
-                      isDragging 
-                        ? "border-accent bg-accent/5" 
+                      isDragging
+                        ? "border-accent bg-accent/5"
                         : "border-border hover:border-accent/50"
                     )}
                   >
@@ -305,7 +339,7 @@ const Customize = () => {
                     </button>
                   </div>
                 )}
-                
+
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -316,8 +350,8 @@ const Customize = () => {
                 />
 
                 {!uploadedImage && (
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full mt-4"
                     onClick={() => fileInputRef.current?.click()}
                   >
@@ -337,24 +371,27 @@ const Customize = () => {
                       onClick={() => setSelectedColor(color)}
                       className={cn(
                         "w-12 h-12 rounded-full border-4 transition-all relative",
-                        selectedColor.name === color.name 
-                          ? "border-accent scale-110" 
+                        selectedColor.name === color.name
+                          ? "border-accent scale-110"
                           : "border-transparent hover:scale-105"
                       )}
                       style={{ backgroundColor: color.value }}
                       aria-label={`Selecionar cor ${color.name}`}
                     >
                       {selectedColor.name === color.name && (
-                        <Check 
-                          className="absolute inset-0 m-auto w-5 h-5" 
-                          style={{ color: color.textColor }} 
+                        <Check
+                          className="absolute inset-0 m-auto w-5 h-5"
+                          style={{ color: color.textColor }}
                         />
                       )}
                     </button>
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Cor selecionada: <span className="font-medium text-foreground">{selectedColor.name}</span>
+                  Cor selecionada:{" "}
+                  <span className="font-medium text-foreground">
+                    {selectedColor.name}
+                  </span>
                 </p>
               </div>
 
@@ -389,15 +426,15 @@ const Customize = () => {
                   </div>
                   <Shirt className="w-12 h-12 text-muted-foreground" />
                 </div>
-                
+
                 <p className="text-sm text-muted-foreground mb-4">
-                  Inclui impressão de alta qualidade, tecido 100% algodão premium 
-                  e entrega para todo o Brasil.
+                  Inclui impressão de alta qualidade, tecido 100% algodão
+                  premium e entrega para todo o Brasil.
                 </p>
 
-                <Button 
-                  variant="accent" 
-                  size="lg" 
+                <Button
+                  variant="accent"
+                  size="lg"
                   className="w-full"
                   onClick={handleAddToCart}
                 >
