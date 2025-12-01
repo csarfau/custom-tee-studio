@@ -88,7 +88,7 @@ export const Navbar = () => {
                 to={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "block py-3 text-base font-medium transition-colors flex items-center gap-2",
+                  "block py-3 text-base font-medium transition-colors items-center gap-2",
                   link.highlight && "text-accent",
                   location.pathname === link.href
                     ? "text-accent"
