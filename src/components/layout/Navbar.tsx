@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Sparkles } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ShoppingBag, Sparkles } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { cn } from "@/lib/utils";
 
 interface NavLink {
   href: string;
@@ -11,11 +11,11 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { href: '/', label: 'Início' },
-  { href: '/produtos', label: 'Produtos' },
-  { href: '/personalizar', label: 'Personalizar', highlight: true },
-  { href: '/sobre', label: 'Sobre' },
-  { href: '/contato', label: 'Contato' },
+  { href: "/", label: "Início" },
+  { href: "/produtos", label: "Produtos" },
+  { href: "/personalizar", label: "Personalizar", highlight: true },
+  { href: "/sobre", label: "Sobre" },
+  { href: "/contato", label: "Contato" },
 ];
 
 export const Navbar = () => {
@@ -27,16 +27,14 @@ export const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="font-display text-2xl md:text-3xl tracking-wider text-foreground">
               CUSTOM<span className="text-accent">TEE</span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -54,10 +52,9 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Cart & Mobile Menu */}
           <div className="flex items-center gap-4">
-            <Link 
-              to="/checkout" 
+            <Link
+              to="/checkout"
               className="relative p-2 hover:bg-secondary rounded-full transition-colors"
               aria-label="Ver carrinho"
             >
@@ -68,21 +65,24 @@ export const Navbar = () => {
                 </span>
               )}
             </Link>
-            
+
             <button
               className="md:hidden p-2 hover:bg-secondary rounded-full transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border animate-slide-up">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -92,7 +92,8 @@ export const Navbar = () => {
                   link.highlight && "text-accent",
                   location.pathname === link.href
                     ? "text-accent"
-                    : !link.highlight && "text-foreground/70 hover:text-foreground"
+                    : !link.highlight &&
+                        "text-foreground/70 hover:text-foreground"
                 )}
               >
                 {link.highlight && <Sparkles className="w-4 h-4" />}

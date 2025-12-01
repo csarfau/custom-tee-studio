@@ -34,7 +34,6 @@ export const Footer = () => {
     <footer className="bg-primary text-primary-foreground">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-4">
               <span className="font-display text-3xl tracking-wider">
@@ -59,7 +58,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
             <h4 className="font-display text-lg mb-4 tracking-wide">
               NAVEGAÇÃO
@@ -78,7 +76,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
           <div>
             <h4 className="font-display text-lg mb-4 tracking-wide">SUPORTE</h4>
             <ul className="space-y-3">
@@ -95,7 +92,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-display text-lg mb-4 tracking-wide">CONTATO</h4>
             <ul className="space-y-4">
@@ -121,7 +117,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/50 text-sm">

@@ -152,7 +152,6 @@ const Customize = () => {
 
   return (
     <Layout>
-      {/* Header */}
       <section className="bg-gradient-hero text-primary-foreground section-padding">
         <div className="container-custom text-center">
           <span className="text-accent font-medium text-sm uppercase tracking-wider">
@@ -171,7 +170,6 @@ const Customize = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-            {/* Preview */}
             <div className="order-2 lg:order-1">
               <h2 className="font-display text-2xl mb-6">PRÉVIA DA CAMISETA</h2>
 
@@ -179,9 +177,7 @@ const Customize = () => {
                 className="relative aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
                 style={{ backgroundColor: "#f0f0f0" }}
               >
-                {/* T-shirt SVG */}
                 <svg viewBox="0 0 400 450" className="w-full h-full max-w-md">
-                  {/* T-shirt shape */}
                   <path
                     d="M80 80 L50 120 L80 140 L80 400 L320 400 L320 140 L350 120 L320 80 L260 80 L240 60 Q200 40 160 60 L140 80 Z"
                     fill={selectedColor.value}
@@ -193,7 +189,6 @@ const Customize = () => {
                     strokeWidth="2"
                   />
 
-                  {/* Collar */}
                   <path
                     d="M160 60 Q200 90 240 60"
                     fill="none"
@@ -207,7 +202,6 @@ const Customize = () => {
                     strokeWidth="3"
                   />
 
-                  {/* Uploaded image on shirt */}
                   {uploadedImage && (
                     <foreignObject
                       x={200 - imageScale * 1.4}
@@ -225,7 +219,6 @@ const Customize = () => {
                     </foreignObject>
                   )}
 
-                  {/* Placeholder when no image */}
                   {!uploadedImage && (
                     <g>
                       <rect
@@ -262,7 +255,6 @@ const Customize = () => {
                 </svg>
               </div>
 
-              {/* Image controls */}
               {uploadedImage && (
                 <div className="mt-6 space-y-4">
                   <div>
@@ -292,9 +284,7 @@ const Customize = () => {
               )}
             </div>
 
-            {/* Controls */}
             <div className="order-1 lg:order-2 space-y-8">
-              {/* Upload Area */}
               <div>
                 <h2 className="font-display text-2xl mb-4">ENVIE SUA FOTO</h2>
 
@@ -361,7 +351,6 @@ const Customize = () => {
                 )}
               </div>
 
-              {/* Color Selection */}
               <div>
                 <h3 className="font-display text-xl mb-4">COR DA CAMISETA</h3>
                 <div className="flex flex-wrap gap-3">
@@ -395,7 +384,6 @@ const Customize = () => {
                 </p>
               </div>
 
-              {/* Size Selection */}
               <div>
                 <h3 className="font-display text-xl mb-4">TAMANHO</h3>
                 <div className="flex flex-wrap gap-2">
@@ -417,7 +405,6 @@ const Customize = () => {
                 </div>
               </div>
 
-              {/* Price and CTA */}
               <div className="bg-secondary rounded-xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
