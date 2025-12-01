@@ -143,8 +143,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium mb-1">Endereço</h3>
                     <p className="text-muted-foreground">
-                      Av. Paulista, 1000<br />
-                      São Paulo, SP - 01310-100
+                      Av. Raja Gabáglia, 1000 <br />
+                      - Belo Horizonte, MG
                     </p>
                   </div>
                 </div>
